@@ -8,7 +8,7 @@
   \***********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"afca-blocks/link-group","version":"0.1","title":"Link Group Block","category":"theme","icon":"admin-links","description":"Add blocks inside a link group.","supports":{"html":false},"attributes":{"groupLinkUrl":{"type":"string","default":""},"groupLinkTarget":{"type":"string","default":"_self"},"groupLinkRel":{"type":"string","default":""},"groupLinkAlt":{"type":"string","default":""}},"textdomain":"afca-blocks-link-group","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"afca-blocks/link-group","version":"0.1","title":"Link Group Block","category":"theme","icon":"admin-links","description":"Add blocks inside a link group.","supports":{"html":false},"attributes":{"groupLinkUrl":{"type":"string","default":""},"groupLinkTarget":{"type":"string","default":"_self"},"groupLinkRel":{"type":"string","default":""},"groupAriaLabel":{"type":"string","default":""}},"textdomain":"afca-blocks-link-group","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -44,7 +44,7 @@ function Edit({
     groupLinkUrl,
     groupLinkTarget,
     groupLinkRel,
-    groupLinkAlt
+    groupAriaLabel
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -78,10 +78,10 @@ function Edit({
             groupLinkRel: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Alt text', 'afca-blocks-link-group'),
-          value: groupLinkAlt,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Aria Label', 'afca-blocks-link-group'),
+          value: groupAriaLabel,
           onChange: value => setAttributes({
-            groupLinkAlt: value
+            groupAriaLabel: value
           })
         })]
       })
@@ -180,14 +180,14 @@ function save({
     groupLinkUrl,
     groupLinkTarget,
     groupLinkRel,
-    groupLinkAlt
+    groupAriaLabel
   } = attributes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
     href: groupLinkUrl,
     target: groupLinkTarget,
-    rel: groupLinkRel,
-    "aria-label": groupLinkAlt,
+    rel: groupLinkRel || undefined,
+    "aria-label": groupAriaLabel || undefined,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
   });
 }

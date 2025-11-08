@@ -8,7 +8,7 @@ export default function Edit({ attributes, setAttributes }) {
 		groupLinkUrl,
 		groupLinkTarget,
 		groupLinkRel,
-		groupLinkAlt
+		groupAriaLabel
 	} = attributes;
 
 	const blockProps = useBlockProps();
@@ -37,9 +37,9 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ groupLinkRel: value })}
 					/>
 					<TextControl
-						label={__('Alt text', 'afca-blocks-link-group')}
-						value={groupLinkAlt}
-						onChange={(value) => setAttributes({ groupLinkAlt: value })}
+						label={__('Aria Label', 'afca-blocks-link-group')}
+						value={groupAriaLabel}
+						onChange={(value) => setAttributes({ groupAriaLabel: value })}
 					/>
 				</PanelBody>
 			</InspectorControls>

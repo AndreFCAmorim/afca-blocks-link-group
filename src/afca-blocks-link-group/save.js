@@ -5,7 +5,7 @@ export default function save({ attributes }) {
 		groupLinkUrl,
 		groupLinkTarget,
 		groupLinkRel,
-		groupLinkAlt,
+		groupAriaLabel,
 	} = attributes;
 
 	return (
@@ -13,8 +13,8 @@ export default function save({ attributes }) {
 			{ ...useBlockProps.save() }
 			href={groupLinkUrl}
 			target={groupLinkTarget}
-			rel={groupLinkRel}
-			aria-label={groupLinkAlt}
+			rel={groupLinkRel || undefined}
+			aria-label={groupAriaLabel || undefined}
 		>
 			<InnerBlocks.Content />
 		</a>

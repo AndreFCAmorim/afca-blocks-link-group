@@ -23,7 +23,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"groupLinkAlt": {
+		"groupAriaLabel": {
 			"type": "string",
 			"default": ""
 		}

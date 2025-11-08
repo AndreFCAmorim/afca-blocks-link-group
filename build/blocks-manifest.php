@@ -26,7 +26,7 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
-			'groupLinkAlt' => array(
+			'groupAriaLabel' => array(
 				'type' => 'string',
 				'default' => ''
 			)
